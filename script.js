@@ -46,8 +46,20 @@ function add(nOne, nTwo){
     if(mainNumber.textContent == 0){
         mainNumber.textContent = number
     }else{
+        if(mainNumber.textContent.length < 11){
         mainNumber.textContent += number
+        } else {
+            if(mainNumber.textContent.length === 11){
+            const list = Array.from(mainNumber.textContent);
+            list.shift();
+            mainNumber.textContent = list.join('')
+            }
+            mainNumber.textContent += number
+        }
+
     }
+
+    
     console.log(number)
 }
 
