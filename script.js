@@ -41,9 +41,14 @@ function add(nOne, nTwo){
 
   function btnNumberFunction(e){
     let number = parseFloat(e.target.textContent)
+    numbScreen = mainNumber.textContent
 
-    mainNumber.textContent = number
+    if(mainNumber.textContent == 0){
+        mainNumber.textContent = number
+    }else{
+        mainNumber.textContent += number
+    }
     console.log(number)
-  }
+}
 
   
