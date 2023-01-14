@@ -26,3 +26,24 @@ function add(nOne, nTwo){
         return divide(nOne, nTwo)
     }
   }
+
+  const mainNumber = document.querySelector('.main-number')
+
+  const supNumber = document.querySelector('.superiorNumber')
+
+  const operatorScreen = document.querySelector('.operatorScr')
+
+  const btnNumberList = Array.from(document.querySelectorAll('.numberBtn'))
+
+  btnNumberList.forEach(btn => {
+    btn.addEventListener('click', btnNumberFunction)
+  });
+
+  function btnNumberFunction(e){
+    let number = parseFloat(e.target.textContent)
+
+    mainNumber.textContent = number
+    console.log(number)
+  }
+
+  

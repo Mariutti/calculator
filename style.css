@@ -25,9 +25,9 @@
     border: 1px solid darkgrey;
     display: grid;
     grid-template-rows: 0.8fr 2fr;
-    font-family: 'Roboto', sans-serif;;
+    font-family: 'Roboto', sans-serif;
   }
-  .superior{
+  .superiorNumber{
     margin: 0.5rem 1rem 0 ;
     font-size: 1.2rem;
   }
@@ -42,7 +42,7 @@
     font-size: 2.8rem;  
   }
   
-  .operator{
+  .operatorScr{
     font-size: 2rem;
   }
   
