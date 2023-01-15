@@ -48,10 +48,16 @@ btnSpecialFuncList.forEach(btn => {
     btn.addEventListener('click', btnSpecialFunc)
 });
 
-
+let symbolKeeper = ''
 
 function btnNumberFunction(e){
     let number = e.target.textContent
+
+    if(symbolKeeper != ''){
+        supNumber.textContent = mainNumber.textContent;
+        mainNumber.textContent = '0'
+        symbolKeeper = ''
+    }
     
     if(mainNumber.textContent == 0){
         mainNumber.textContent = number
@@ -82,9 +88,7 @@ function btnOperatorFunc(e){
     symbolShower.textContent = btnSymbol;
     numSup = parseFloat(mainNumber.textContent)
 
-    if(!btnSymbol){
-
-    }
+   symbolKeeper = e.target.textContent
     
 }
 
