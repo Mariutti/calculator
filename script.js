@@ -37,20 +37,21 @@ const btnNumberList = Array.from(document.querySelectorAll('.numberBtn'))
 
 const symbolShower = document.querySelector('.operatorScr');
 
+const btnSpecialFuncList = Array.from(document.querySelectorAll('.specialBtn'))
+
 btnNumberList.forEach(btn => {
     btn.addEventListener('click', btnNumberFunction)
 });
 
-const btnSpecialFuncList = Array.from(document.querySelectorAll('.specialBtn'))
 
 btnSpecialFuncList.forEach(btn => {
     btn.addEventListener('click', btnSpecialFunc)
 });
 
 
+
 function btnNumberFunction(e){
     let number = e.target.textContent
-    numbScreen = mainNumber.textContent
     
     if(mainNumber.textContent == 0){
         mainNumber.textContent = number
@@ -85,8 +86,8 @@ function btnOperatorFunc(e){
 
 function btnSpecialFunc(e){
     let btnSpec = e.target.textContent
-    console.log(btnSpec)
-    switch (btnSpec.textContent) {
+    // console.log(btnSpec)
+    switch (btnSpec) {
         case 'CE':
             console.log('CE')
             break;
@@ -94,7 +95,13 @@ function btnSpecialFunc(e){
             console.log('C')
             break;
         case '⌫':
-            console.log('⌫')
+            console.log(`⌫`)
+            const list = Array.from(mainNumber.textContent);
+            list.pop();
+            mainNumber.textContent = list.join('')
+            if(!mainNumber.textContent){
+                mainNumber.textContent = '0'
+            }
             break;
         case '+/-':
             console.log('+/-')
