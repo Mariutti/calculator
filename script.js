@@ -49,7 +49,7 @@ btnSpecialFuncList.forEach(btn => {
 });
 
 let symbolKeeper = ''
-
+// let btnSymbol;
 function btnNumberFunction(e){
     let number = e.target.textContent
 
@@ -83,13 +83,13 @@ btnOperatorList.forEach(btn => {
 let numSup;
 let numInf;
 
+
 function btnOperatorFunc(e){
     btnSymbol = e.target.textContent    
     symbolShower.textContent = btnSymbol;
-    numSup = parseFloat(mainNumber.textContent)
+    // numSup = parseFloat(mainNumber.textContent)
 
-   symbolKeeper = e.target.textContent
-    
+    symbolKeeper = btnSymbol;    
 }
 
 function btnSpecialFunc(e){
@@ -100,7 +100,10 @@ function btnSpecialFunc(e){
             mainNumber.textContent = '0'
             break;
         case 'C':
-            console.log('C')
+            mainNumber.textContent = '0';
+            supNumber.textContent = '';
+            operatorScreen.textContent = ''
+            symbolKeeper = ''
             break;
         case '⌫':
             const list = Array.from(mainNumber.textContent);
