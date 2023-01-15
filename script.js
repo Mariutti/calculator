@@ -81,6 +81,10 @@ function btnOperatorFunc(e){
     btnSymbol = e.target.textContent    
     symbolShower.textContent = btnSymbol;
     numSup = parseFloat(mainNumber.textContent)
+
+    if(!btnSymbol){
+
+    }
     
 }
 
@@ -89,13 +93,12 @@ function btnSpecialFunc(e){
     // console.log(btnSpec)
     switch (btnSpec) {
         case 'CE':
-            console.log('CE')
+            mainNumber.textContent = '0'
             break;
         case 'C':
             console.log('C')
             break;
         case '⌫':
-            console.log(`⌫`)
             const list = Array.from(mainNumber.textContent);
             list.pop();
             mainNumber.textContent = list.join('')
@@ -104,7 +107,7 @@ function btnSpecialFunc(e){
             }
             break;
         case '+/-':
-            console.log('+/-')
+            mainNumber.textContent = mainNumber.textContent * (-1)
             break;
         default:
             break;
