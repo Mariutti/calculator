@@ -1,122 +1,149 @@
 function add(nOne, nTwo){
     return nOne + nTwo;
-}
-
-function subtract(nOne, nTwo){
+  }
+  
+  function subtract(nOne, nTwo){
     return nOne - nTwo;
-}
-
-function multiply(nOne, nTwo){
+  }
+  
+  function multiply(nOne, nTwo){
     return nOne * nTwo;
-}
-
-function divide(nOne, nTwo){
+  }
+  
+  function divide(nOne, nTwo){
     return nOne / nTwo;
-}
-
-function operate(operator, nOne, nTwo){
+  }
+  
+  function operate(operator, nOne, nTwo){
     switch(operator){
-        case add:
+      case '+':
         return add(nOne, nTwo);
-        case subtract:
+      case '-':
         return subtract(nOne, nTwo)
-        case multiply:
+      case 'x':
         return multiply(nOne, nTwo)
-        case divide:
+      case '÷':
         return divide(nOne, nTwo)
     }
-}
-
-const mainNumber = document.querySelector('.main-number')
-
-const supNumber = document.querySelector('.superiorNumber')
-
-const operatorScreen = document.querySelector('.operatorScr')
-
-const btnNumberList = Array.from(document.querySelectorAll('.numberBtn'))
-
-const symbolShower = document.querySelector('.operatorScr');
-
-const btnSpecialFuncList = Array.from(document.querySelectorAll('.specialBtn'))
-
-btnNumberList.forEach(btn => {
+  }
+  
+  const mainNumber = document.querySelector('.main-number')
+  
+  const supNumber = document.querySelector('.superiorNumber')
+  
+  const operatorScreen = document.querySelector('.operatorScr')
+  
+  const btnNumberList = Array.from(document.querySelectorAll('.numberBtn'))
+  
+  const symbolShower = document.querySelector('.operatorScr');
+  
+  const btnSpecialFuncList = Array.from(document.querySelectorAll('.specialBtn'))
+  btnNumberList.forEach(btn => {
     btn.addEventListener('click', btnNumberFunction)
-});
-
-
-btnSpecialFuncList.forEach(btn => {
+  });
+  
+  
+  btnSpecialFuncList.forEach(btn => {
     btn.addEventListener('click', btnSpecialFunc)
-});
-
-let symbolKeeper = ''
-// let btnSymbol;
-function btnNumberFunction(e){
-    let number = e.target.textContent
-
-    if(symbolKeeper != ''){
-        supNumber.textContent = mainNumber.textContent;
-        mainNumber.textContent = '0'
-        symbolKeeper = ''
-    }
+  });
+  
+  let symbolKeeper = ''
+  // let btnSymbol;
+  function btnNumberFunction(e){
     
-    if(mainNumber.textContent == 0){
-        mainNumber.textContent = number
-    }else{
-        if(mainNumber.textContent.length < 11){
-            mainNumber.textContent += number
-        } else {
-            if(mainNumber.textContent.length === 11){
-                const list = Array.from(mainNumber.textContent);
-                list.shift();
-                mainNumber.textContent = list.join('')
-            }
-            mainNumber.textContent += number
-        }
+    let number = e.target.textContent
+    document.querySelector(".btnDot").disabled = false
+  
+   
+  
+    if(symbolKeeper != ''){
+      supNumber.textContent = mainNumber.textContent;
+      mainNumber.textContent = '0'
+      symbolKeeper = ''
     }
-}
-
-const btnOperatorList = Array.from(document.querySelectorAll('.operatorBtn'))
-
-btnOperatorList.forEach(btn => {
+  
+    if(mainNumber.textContent == 0){
+      mainNumber.textContent = number
+    }else{
+      if(mainNumber.textContent.length < 11){
+        mainNumber.textContent += number
+      } else {
+        if(mainNumber.textContent.length === 11){
+          const list = Array.from(mainNumber.textContent);
+          list.shift();
+          mainNumber.textContent = list.join('')
+        }
+        mainNumber.textContent += number
+      }
+    }
+      if(mainNumber.textContent.includes('.')){
+      document.querySelector(".btnDot").disabled = true
+    }
+  }
+  
+  const btnOperatorList = Array.from(document.querySelectorAll('.operatorBtn'))
+  
+  btnOperatorList.forEach(btn => {
     btn.addEventListener('click', btnOperatorFunc)
-});
-let numSup;
-let numInf;
-
-
-function btnOperatorFunc(e){
+  });
+  let btnSymbol = ""
+  function btnOperatorFunc(e){
+    let nOne = parseFloat(supNumber.textContent);
+    let nTwo = parseFloat(mainNumber.textContent);
+    let result = operate(btnSymbol, nOne, nTwo)
+  
+    if(operatorScreen.textContent = ''){
+      supNumber.textContent = ""
+      if(supNumber.textContent != ''){    
+        supNumber.textContent = `${nOne} ${btnSymbol} ${nTwo}`
+  
+        mainNumber.textContent = result;
+      }
+    }
+    mainNumber.textContent = Array.from(mainNumber.textContent).splice(0, 12).join('')
     btnSymbol = e.target.textContent    
     symbolShower.textContent = btnSymbol;
-    // numSup = parseFloat(mainNumber.textContent)
-
-    symbolKeeper = btnSymbol;    
-}
-
-function btnSpecialFunc(e){
+    symbolKeeper = btnSymbol;  
+  
+    
+    document.querySelector(".btnDot").disabled = false
+  }
+  
+  function btnSpecialFunc(e){
     let btnSpec = e.target.textContent
     // console.log(btnSpec)
     switch (btnSpec) {
-        case 'CE':
-            mainNumber.textContent = '0'
-            break;
-        case 'C':
-            mainNumber.textContent = '0';
-            supNumber.textContent = '';
-            operatorScreen.textContent = ''
-            symbolKeeper = ''
-            break;
-        case '⌫':
-            const list = Array.from(mainNumber.textContent);
-            list.pop();
-            mainNumber.textContent = list.join('')
-            if(!mainNumber.textContent){
-                mainNumber.textContent = '0'
-            }
-            break;
-        case '+/-':
-            mainNumber.textContent = mainNumber.textContent * (-1)
-            break;
-        default:
-            break;
+      case 'CE':
+        mainNumber.textContent = '0'
+        break;
+      case 'C':
+        mainNumber.textContent = '0';
+        supNumber.textContent = '';
+        operatorScreen.textContent = ''
+        symbolKeeper = ''
+        break;
+      case '⌫':
+        const list = Array.from(mainNumber.textContent);
+        list.pop();
+        mainNumber.textContent = list.join('')
+        if(!mainNumber.textContent){
+          mainNumber.textContent = '0'
+        }
+        break;
+      case '+/-':
+        mainNumber.textContent = mainNumber.textContent * (-1)
+        break;
+      case '=':
+        let nOne = parseFloat(supNumber.textContent);
+        let nTwo = parseFloat(mainNumber.textContent);
+        let result = operate(btnSymbol, nOne, nTwo)
+        supNumber.textContent = `${nOne} ${btnSymbol} ${nTwo}`
+        mainNumber.textContent = result
+        mainNumber.textContent = Array.from(mainNumber.textContent).splice(0, 12).join('')
+        operatorScreen.textContent = ''
+      default:
+        break;
     }
-}
+  }
+  
+  

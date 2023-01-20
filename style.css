@@ -1,76 +1,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-  }
-  
-  .calculator-container{
-    width: 350px;
-    height: 550px;
-    background-color: lightgray;
-    margin: 50px auto;
-    border-radius: 20px;
-    display: grid;
-    grid-template-rows: 0.8fr 2fr;
-    box-shadow: 2px 2px 10px 2px rgb(0,0,0,0.5)
-  }
-  
-  .screen{
-    background-color: lightblue;
-    border-radius: 20px;
-    margin: 20px 20px 5px 20px;
-    border: 1px solid darkgrey;
-    display: grid;
-    grid-template-rows: 0.8fr 2fr;
-    font-family: 'Roboto', sans-serif;
-  }
-  .superiorNumber{
-    margin: 0.5rem 1rem 0 ;
-    font-size: 1.2rem;
-  }
-  
-  .mainDiv{
-    text-align: end;
-    display: grid;
-    grid-template-rows: 1.2fr 0.8fr; 
-    margin: 0 0.5rem 0 0;
-  }
-  .main-number{
-    font-size: 2.8rem;  
-  }
-  
-  .operatorScr{
-    font-size: 2rem;
-  }
-  
-  .buttons-container{
-    background-color: darkgray;
-    border-radius: 20px;
-    margin: 05px 20px 20px 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding: 2.5px;
-  }
-  
-  .divBtn{
-    margin: 2px;
-    padding: 5px;
-  }
-  
-  .btn{
-    background-color: lightgrey;
-    border-radius: 15px;
-    padding: 10px;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    font-family: roboto;
-    font-size: 1.5rem;
-    font-weight: bold;
-    box-shadow: 2px 2px 2px 3px rgb(0,0,0,0.2)
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+.calculator-container{
+  width: 350px;
+  height: 550px;
+  background-color: lightgray;
+  margin: 50px auto;
+  border-radius: 20px;
+  display: grid;
+  grid-template-rows: 0.8fr 2fr;
+  box-shadow: 2px 2px 10px 2px rgb(0,0,0,0.5)
+}
+
+.screen{
+  background-color: lightblue;
+  border-radius: 20px;
+  margin: 20px 20px 5px 20px;
+  border: 1px solid darkgrey;
+  display: grid;
+  grid-template-rows: 0.8fr 2fr;
+  font-family: 'Roboto', sans-serif;
+}
+.superiorNumber{
+  margin: 0.5rem 1rem 0 ;
+  font-size: 1.2rem;
+}
+
+.mainDiv{
+  text-align: end;
+  display: grid;
+  grid-template-rows: 1.2fr 0.8fr; 
+  margin: 0 0.5rem 0 0;
+}
+.main-number{
+  font-size: 2.8rem;  
+}
+
+.operatorScr{
+  font-size: 2rem;
+}
+
+
+
+.buttons-container{
+  background-color: darkgray;
+  border-radius: 20px;
+  margin: 05px 20px 20px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 2.5px;
+}
+
+.divBtn{
+  margin: 2px;
+  padding: 5px;
+}
+
+.btn{
+  background-color: lightgrey;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-family: roboto;
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: 2px 2px 2px 3px rgb(0,0,0,0.2)
+}
+
+.btnDot:disabled{
+  color: black;
+  border: 1px solid black;
+}
